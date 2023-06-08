@@ -1,9 +1,11 @@
-FROM tangramflex/pro-builder:latest AS build
-ENV LD_LIBRARY_PATH=/root/code-gen/build/libs:/root/code-gen/local_install/lib
-WORKDIR /root
-COPY code-gen /root/code-gen
+FROM ubuntu:22.04
+RUN apt update && apt install -y make g++ build-essential autoconf libssl-dev libtool pkgconf
+ENV LD_LIBRARY_PATH=/working/code-gen/build/libs:/working/code-gen/local_install/lib
+WORKDIR /working
+COPY code-gen /working/code-gen
 RUN make -C code-gen
-COPY src /root/src
-COPY Makefile /root
+COPY AltNav/src /working/src
+COPY AltNav/Makefile /working/
 RUN make
-CMD ["alt_nav"]
+CMD ["/working/alt_nav"]
+
