@@ -5,7 +5,7 @@ ENV LD_LIBRARY_PATH=/working/code-gen/build/libs:/working/code-gen/local_install
 WORKDIR /working
 COPY code-gen /working/code-gen
 RUN make -C code-gen
-COPY src /working/src
-COPY Makefile /working/
+COPY MissionComputer/src /working/src
+COPY MissionComputer/Makefile /working/
 RUN make
 CMD ["/working/mission_computer"]
