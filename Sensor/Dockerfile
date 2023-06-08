@@ -5,8 +5,8 @@ ENV LD_LIBRARY_PATH=/working/code-gen/build/libs:/working/code-gen/local_install
 WORKDIR /working
 COPY code-gen /working/code-gen
 RUN make -C code-gen
-COPY src /working/src
-COPY include /working/include
-COPY Makefile /working/
+COPY Sensor/src /working/src
+COPY Sensor/include /working/include
+COPY Sensor/Makefile /working/
 RUN make
 CMD ["/working/sensor"]
