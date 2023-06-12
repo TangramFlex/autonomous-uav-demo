@@ -243,7 +243,7 @@ int main(int argc, char *argv[])
         std::cout << "****** Platform Status ******" << std::endl;
         if (alt_res == nullptr)
         {
-            std::cout << "Location: " << currentLat << " : " << currentLon << " ALT: " << currentAlt << std::endl;
+            std::cout << "Location: " << currentLat << " : " << currentLon << " Altitude: " << currentAlt << " Jammed: " << jammed  << std::endl;
         }
         else
         {
